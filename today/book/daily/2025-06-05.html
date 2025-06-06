@@ -1,0 +1,264 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>06-05-日刊 - By 何夕2077</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">By 何夕2077</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="ai洞察日报-202565"><a class="header" href="#ai洞察日报-202565">AI洞察日报 2025/6/5</a></h1>
+<p><strong>AI产品与功能更新</strong></p>
+<ol>
+<li>Suno 近日升级了其<strong>AI音乐编辑工具</strong>，允许用户上传和混音未完成的作品，并能修改歌词和延长曲目时长至八分钟，同时引入了创意滑块等功能。 <br/> <a href="https://autoproxy.justlikemaki.vip/?pp=https://pic.chinaz.com/picmap/202406061628284261_1.jpg"><img src="https://autoproxy.justlikemaki.vip/?pp=https://pic.chinaz.com/picmap/202406061628284261_1.jpg" alt="图片" title="img" /></a> <br/> 此次升级正值其面临主要唱片公司的版权诉讼，唱片公司希望引入类似于 <strong>YouTube Content ID</strong> 的技术来追踪 <strong>AI</strong> 平台上的音乐使用情况。</li>
+<li>OpenAI 近日宣布 <strong>ChatGPT</strong> 升级新功能，现可连接 <strong>Outlook</strong>、<strong>Teams</strong>、<strong>Gmail</strong> 等多个外部服务，旨在提升企业用户的协作和信息获取效率。 <br/> <a href="https://autoproxy.justlikemaki.vip/?pp=https://pic.chinaz.com/picmap/202412271704353969_1.jpg"><img src="https://autoproxy.justlikemaki.vip/?pp=https://pic.chinaz.com/picmap/202412271704353969_1.jpg" alt="图片" title="img" /></a> <br/> 此外，<strong>macOS</strong> 版 <strong>ChatGPT Team</strong> 用户还新增了"<strong>录制模式</strong>”，能自动生成会议记录和待办事项。</li>
+<li>AI驱动的代码编辑器 <strong>Cursor</strong> 于近日正式发布1.0版本，引入了核心功能 <strong>BugBot</strong>，能自动化审查 <strong>GitHub</strong> 上的 <strong>Pull Request</strong> 并一键修复代码。 <br/> <a href="https://autoproxy.justlikemaki.vip/?pp=https://pic.chinaz.com/2025/0605/6388471022950404092684122.png"><img src="https://autoproxy.justlikemaki.vip/?pp=https://pic.chinaz.com/2025/0605/6388471022950404092684122.png" alt="图片" title="img" /></a> <br/> 该版本还全面开放了后台代理功能，并增加了 <strong>Jupyter</strong> 支持和"Memories”项目管理功能，旨在显著提升开发者的生产力。</li>
+<li>腾讯公益近日推出了创新性的"<strong>问 AI</strong>”功能，首次将<strong>大型人工智能模型</strong>应用于公益领域，旨在提升公众与公益项目及机构之间的互动和透明度。 <br/> <a href="https://autoproxy.justlikemaki.vip/?pp=https://pic.chinaz.com/picmap/201811151633427149_4.jpg"><img src="https://autoproxy.justlikemaki.vip/?pp=https://pic.chinaz.com/picmap/201811151633427149_4.jpg" alt="图片" title="img" /></a> <br/> 这一便捷的沟通方式有助于公众更深入地理解并参与公益事业，并有望推动公益事业的进一步发展。</li>
+</ol>
+<p><strong>AI前沿研究</strong></p>
+<ol>
+<li>这项研究提出 <strong>SuperWriter-Agent</strong> 框架，通过引入结构化的思考、规划和完善阶段，显著提升了<strong>大型语言模型</strong>在生成长文本时的连贯性和质量。 <br/> 基于此框架训练的 <strong>SuperWriter-LM</strong> 在多项基准测试中表现出领先水平，证明了这种反思驱动方法能够让模型像专业作家一样，生成更高质量和一致性的长篇内容：<a href="https://arxiv.org/abs/2506.04180">Link</a>。</li>
+</ol>
+<p><strong>AI行业展望与社会影响</strong></p>
+<ol>
+<li>OpenAI 首席执行官 <strong>山姆・奥尔特曼</strong> 指出，<strong>AI</strong> 正逐渐被企业视为基层员工，导致科技公司初级职位招聘量在2023至2024年间下降了25%。 <br/> <a href="https://autoproxy.justlikemaki.vip/?pp=https://pic.chinaz.com/picmap/202305291455510902_2.jpg"><img src="https://autoproxy.justlikemaki.vip/?pp=https://pic.chinaz.com/picmap/202305291455510902_2.jpg" alt="图片" title="img" /></a> <br/> 专家预测，到2030年 <strong>AI</strong> 可能取代多达3.75亿个工作岗位，甚至未来1到5年内可能淘汰一半的初级白领岗位，引发高达20%的失业率。</li>
+</ol>
+<p><strong>开源TOP项目</strong></p>
+<ol>
+<li><strong>HowToCook</strong> 是一个专为程序员设计的居家烹饪方法指南，旨在解决程序员做饭难的问题。该项目目前已获得 <strong>87530</strong> 个 <strong>Star</strong>，内容仅限简体中文，提供详细的烹饪指导：<a href="https://github.com/Anduin2017/HowToCook">Link</a>。</li>
+<li><strong>system-design-primer</strong> 是一项旨在帮助学习如何设计大规模系统并准备系统设计面试的开源项目，已获得 <strong>304096</strong> 个 <strong>Star</strong>。它提供了全面的学习资源，并包含 <strong>Anki</strong> 抽认卡辅助学习：<a href="https://github.com/donnemartin/system-design-primer">Link</a>。</li>
+<li><strong>ChinaTextbook</strong> 项目致力于收集中国所有小学、初中、高中及大学的 <strong>PDF教材</strong>，为学生和教师提供免费的教育资源。这个实用的资料库已获得 <strong>35875</strong> 个 <strong>Star</strong>：<a href="https://github.com/TapXWorld/ChinaTextbook">Link</a>。</li>
+<li>Firecrawl 近日发布了突破性的 <strong>/search API</strong>，允许开发者通过一次API调用实现网页搜索与内容抓取，并以 <strong>AI友好</strong> 的多种格式输出数据。 <br/> <a href="https://autoproxy.justlikemaki.vip/?pp=https://pic.chinaz.com/2025/0605/6388471694605610854897111.png"><img src="https://autoproxy.justlikemaki.vip/?pp=https://pic.chinaz.com/2025/0605/6388471694605610854897111.png" alt="图片" title="img" /></a> <br/> 这一功能极大简化了 <strong>AI</strong> 应用的数据获取流程，无需第三方依赖，提升了数据处理效率，并在 <strong>GitHub</strong> 上已获得超过10K的 <strong>Star</strong>。</li>
+</ol>
+<p><strong>社媒分享</strong></p>
+<ol>
+<li><strong>Gorden Sun</strong> 分享了一套能生成"超级赞”图文效果的 <strong>AI</strong> 提示词，并推荐使用 <strong>GPT4o</strong>、<strong>Claude-3.7</strong> 和 <strong>DeepSeek-V3</strong> 等工具。 <br/> <a href="https://pbs.twimg.com/media/Gse1INSb0AQCh0S?format=jpg&amp;name=orig"><img src="https://pbs.twimg.com/media/Gse1INSb0AQCh0S?format=jpg&amp;name=orig" alt="Image" title="img" /></a> <br/> 他指出，这些提示词虽然易于使用，但原作者在整理上花费了心思：<a href="https://x.com/Gorden_Sun/status/1930466986544308552">Link</a>。</li>
+<li>推主 <strong>wwwyesterday</strong> 将现代学术论文比作 <strong>npm</strong> 包管理系统，认为两者都存在论文/包数量庞大、引用/依赖层层叠叠的现象，且大部分价值不高，少数经典广为引用。 <br/> 他指出，现在很少有人能完全从零开始原创，就像写东西离不开 <code>package.json</code>，但他仍会刷 <strong>arxiv</strong> 寻找新观点：<a href="https://x.com/wwwgoubuli/status/1930310020312510934">Link</a>。</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../daily/2025-06-06.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../daily/2025-06-04.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../daily/2025-06-06.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../daily/2025-06-04.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
